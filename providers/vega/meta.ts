@@ -139,6 +139,9 @@ export const getMeta = async ({
       image,
       imdbId,
       type,
+      description: synopsis,
+      poster: image,
+      trailer: "",
       linkList: links,
     };
   } catch (error) {

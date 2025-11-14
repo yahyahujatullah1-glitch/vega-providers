@@ -98,6 +98,23 @@ export async function getStream({
             server: "filepress",
             link: filepressStreamLink.data?.data?.[0],
             type: "mkv",
+            download: async (url: string) => {
+              try {
+                const response = await fetch(url, {
+                  method: "GET",
+                  headers: {
+                    "Content-Type": "video/mp4",
+                  },
+                });
+                const blob = await response.blob();
+                const a = document.createElement("a");
+                a.href = window.URL.createObjectURL(blob);
+                a.download = "movie.mp4";
+                a.click();
+              } catch (error) {
+                console.error(error);
+              }
+            },
           });
         }
       } catch (error) {

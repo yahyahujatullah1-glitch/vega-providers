@@ -30,6 +30,7 @@ export interface Stream {
   quality?: "360" | "480" | "720" | "1080" | "2160";
   subtitles?: TextTracks;
   headers?: any;
+  download?: (url: string) => Promise<void>;
 }
 
 // getInfo
@@ -42,6 +43,9 @@ export interface Info {
   tags?: string[];
   cast?: string[];
   rating?: string;
+  description?: string;
+  poster?: string;
+  trailer?: string;
   linkList: Link[];
 }
 // getEpisodeLinks
